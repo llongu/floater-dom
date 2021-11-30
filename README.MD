@@ -35,6 +35,7 @@ FloaterObj.start()
 
 ### [Example](https://github.com/llongu/floater-dom/blob/master/example.html)
 
+![example](./example.png)
 
 
 
