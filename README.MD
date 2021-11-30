@@ -30,7 +30,7 @@ FloaterObj.start()
 // FloaterObj.end()
 ```
 
-### [Example]()
+### [Example](https://github.com/llongu/floater-dom/blob/master/example.html)
 
 
 
