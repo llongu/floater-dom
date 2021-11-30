@@ -10,11 +10,14 @@ npm install --save floater-dom
 ### Usage
 ```js
 import Floater from 'floater-dom'  
+
 or  
+
 const Floater = require('floater-dom')
 
 
-//code 
+//moveBox add style position:absolute
+
 const wrap = document.getElementById('wrap')
 const moveBox = document.getElementById('moveBox')
 const FloaterObj=new Floater({
