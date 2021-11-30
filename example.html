@@ -1,0 +1,96 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title></title>
+<style type="text/css">
+
+body{
+    min-height: 100vh;
+}
+#wrap{
+	width: 800px;
+	height: 600px;
+	border: 2px solid black;
+	margin: 50px auto;
+	position: relative;
+}
+
+#moveBox {
+	padding: 6px 8px;
+	color:#fff;
+	background:rgba(0,0,0,.7);
+	position:absolute;
+}
+
+</style>
+
+</head>
+<body>
+	<div id="wrap">
+		<div id='moveBox'>
+		  moveBox
+		</div>
+	</div>
+
+  <button onClick="changeBox(1)">add wrap width and height</button>
+  <button onClick="changeBox(2)">cut down wrap width and height</button>
+  <button onClick="changeBox(3)">puse</button>
+  <button onClick="changeBox(4)">continue</button>
+</body>
+
+<script src='./index.js'></script>
+<script>
+	  const	wrap = document.getElementById('wrap')
+	  const	moveBox = document.getElementById('moveBox')
+    const FloaterObj = new Floater({
+      'dom':moveBox,
+      "bodyW": wrap.clientWidth,
+      "bodyH": wrap.clientHeight,
+      'x':20,
+      "y":20,
+      speed:1 //default 0.5
+    });
+
+    FloaterObj.start()
+
+    function changeBox(type){
+      const wrap=document.getElementById('wrap')
+      const moveBox=document.getElementById('moveBox')
+      if(type===1){
+        let changeW=1000
+        let changeH=800
+        wrap.style.width = changeW+'px'
+        wrap.style.height = changeH+'px'
+        FloaterObj.bodyW= changeW
+        FloaterObj.bodyH= changeH
+      }
+
+      if(type===2){
+        let changeW=500
+        let changeH=200
+        //缩小wrap宽高度，x,y已超出范围
+        if(FloaterObj.x + moveBox.clientWidth > changeW){
+          FloaterObj.x=FloaterObj.x-(FloaterObj.x+ moveBox.clientWidth-changeW)-10;
+        }
+        if(FloaterObj.y + moveBox.clientHeight > changeH){
+          FloaterObj.y=FloaterObj.y-(FloaterObj.y + moveBox.clientHeight-changeH)-10;
+        }
+
+        wrap.style.width = changeW+'px'
+        wrap.style.height = changeH+'px'
+        FloaterObj.bodyW= changeW
+        FloaterObj.bodyH= changeH
+      }
+
+      if(type===3){
+        FloaterObj.end()
+      }
+      if(type==4){
+         FloaterObj.start()
+      }
+    }
+    
+    </script>
+</html>
+
