@@ -37,14 +37,14 @@
    this.bodyH = opt.bodyH;
    this.x = opt.x;
    this.y = opt.y;
-   this.direction =opt.speed > 0 ? [parseInt(opt.speed), ~parseInt(opt.speed)] : [0.5, -0.5]; //方向和速度值
+   this.direction =opt.speed > 0 ? [opt.speed, -opt.speed] : [0.5, -0.5]; //方向和速度值
    this.speedX = 0;
    this.speedY = 0;
    this.timer = null;
+   this.random()
  };
 
  Floater.prototype.start = function() {
-   this.random();
    this.loop();
  };
 
